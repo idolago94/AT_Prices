@@ -7,8 +7,9 @@ import {
 } from 'react-native';
 import { View, Text } from 'react-native-ui-lib';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { NavigationContainer } from '@react-navigation/native';
-import { RootNavigator } from './src/navigators';
+import store from '@store'
+import { Provider } from 'react-redux'
+import { RootNavigator } from '@navigators';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -18,15 +19,17 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={[s.container, backgroundStyle]}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <View flex>
-        <RootNavigator />
-      </View>
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={[s.container, backgroundStyle]}>
+        <StatusBar
+          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          backgroundColor={backgroundStyle.backgroundColor}
+        />
+        <View flex>
+          <RootNavigator />
+        </View>
+      </SafeAreaView>
+    </Provider>
   );
 }
 
