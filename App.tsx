@@ -3,10 +3,9 @@ import {
   SafeAreaView,
   StatusBar,
   StyleSheet,
-  Text,
   useColorScheme,
-  View,
 } from 'react-native';
+import { View, Text } from 'react-native-ui-lib';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { NavigationContainer } from '@react-navigation/native';
 
@@ -38,9 +37,9 @@ const s = StyleSheet.create({
   container: {
     flex: 1,
   },
-  content: { 
-    flex: 1, 
-    justifyContent: 'center', 
-    alignItems: 'center' 
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 })
