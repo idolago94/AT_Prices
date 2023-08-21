@@ -9,7 +9,10 @@
       "@store": ["./src/store"],
       "@store/*": ["./src/store/*"],
       "@constants": ["./src/constants"],
-      "@constants/*": ["./src/constants/*"]
+      "@constants/*": ["./src/constants/*"],
+      "@content": ["./src/content"],
+      "@content/*": ["./src/content/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   }
 }

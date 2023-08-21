@@ -1,0 +1,8 @@
+{
+    "heightWidthCalculator": {
+        "height": "אורך",
+        "width": "רוחב",
+        "resultPlaceholder": "מחיר",
+        "copy": "העתק מחיר"
+    }
+}

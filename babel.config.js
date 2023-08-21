@@ -7,7 +7,9 @@ module.exports = {
           "@navigators": "./src/navigators",
           "@screens": "./src/screens",
           "@store": "./src/store",
-          "@constants": "./src/constants"
+          "@constants": "./src/constants",
+          "@content": "./src/content",
+          "@utils": "./src/utils"
         }
       }
     ],

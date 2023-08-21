@@ -1,14 +1,22 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
-import { useAppSelector } from '@store/hooks'
+import { ProductsMap } from '../../types/Product';
 
 export const PrefencesReducerName = "prefences"
 
 export interface IPrefencesReducer {
-    initialScreen: string
+    initialScreen: string;
+    products: ProductsMap
 }
 
+
+
 const INITIAL_STATE: IPrefencesReducer = {
-    initialScreen: ""
+    initialScreen: "",
+    products: {
+        firstProduct: {
+            name: "first product"
+        }
+    }
 }
 
 const actions = {

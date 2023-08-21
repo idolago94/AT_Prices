@@ -4,7 +4,7 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer, NavigationState } from '@react-navigation/native';
 import { useAppDispatch, usePrefencesReducer } from "@store/hooks";
 import { ScreenNames } from "@constants/ScreenNames";
-import { PrefencesScreen } from "@screens";
+import { PrefencesScreen, HeightWidthCalculator } from "@screens";
 import { setInitialScreen } from "@store/reducers/PrefencesReducer";
 
 const Drawer = createDrawerNavigator();
@@ -21,26 +21,26 @@ function HomeScreen({ navigation }: any) {
 export const RootNavigator = () => {
   const dispatch = useAppDispatch()
   const { initialScreen } = usePrefencesReducer()
-  console.log("🚀 ~ file: RootNavigator.tsx:24 ~ RootNavigator ~ initialScreen:", initialScreen)
 
   const onNavigationChange = (state: NavigationState | undefined) => {
     const { history = [] } = state || {}
     if (!state || history.length == 0) return
-    const lastHistoryItem = history[history.length - 1]
+    const lastHistoryItem: any = history[history.length - 1]
     if (lastHistoryItem?.type == "route") {
-      const screenName = lastHistoryItem.key.split("-")[0]
+      const screenName = lastHistoryItem?.key?.split("-")[0]
       if (screenName !== ScreenNames.PREFENCES) {
         dispatch(setInitialScreen(screenName))
       }
     }
   }
 
-  return (
-    <NavigationContainer onStateChange={onNavigationChange}>
-      <Drawer.Navigator initialRouteName={initialScreen || ScreenNames.HOME}>
-        <Drawer.Screen name={ScreenNames.HOME} component={HomeScreen} />
-        <Drawer.Screen name={ScreenNames.PREFENCES} component={PrefencesScreen} />
-      </Drawer.Navigator>
-    </NavigationContainer>
-  );
+  return <HeightWidthCalculator/>
+  // return (
+  //   <NavigationContainer onStateChange={onNavigationChange}>
+  //     <Drawer.Navigator initialRouteName={initialScreen || ScreenNames.HOME}>
+  //       <Drawer.Screen name={ScreenNames.HOME} component={HomeScreen} />
+  //       <Drawer.Screen name={ScreenNames.PREFENCES} component={PrefencesScreen} />
+  //     </Drawer.Navigator>
+  //   </NavigationContainer>
+  // );
 }
